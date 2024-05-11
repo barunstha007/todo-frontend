@@ -6,10 +6,11 @@ function Form({
 	setName,
 	description,
 	setDescription,
-	dateTime,
+	date_time,
 	setDateTime,
 	completed,
 	setCompleted,
+	addTodo,
 }) {
 	return (
 		<FormContainer>
@@ -33,7 +34,7 @@ function Form({
 				<label htmlFor="dateTime">Date & Time:</label>
 				<Input
 					id="dateTime"
-					value={dateTime}
+					value={date_time}
 					onChange={(e) => setDateTime(e.target.value)}
 					type="datetime-local"
 					required
@@ -43,12 +44,14 @@ function Form({
 				<label htmlFor="completed">Completed:</label>
 				<input
 					id="completed"
-					checked={completed}
+					value={completed}
 					onChange={(e) => setCompleted(e.target.checked)}
 					type="checkbox"
 				/>
 			</div>
-			<Button type="submit">Submit</Button>
+			<Button type="submit" onClick={(e) => addTodo(e)}>
+				Add
+			</Button>
 		</FormContainer>
 	)
 }
