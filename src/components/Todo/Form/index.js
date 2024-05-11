@@ -20,6 +20,7 @@ function Form({
 				value={name}
 				onChange={(e) => setName(e.target.value)}
 				type="text"
+				placeholder="Enter name"
 				required
 			/>
 			<label htmlFor="description">Description:</label>
@@ -28,6 +29,7 @@ function Form({
 				value={description}
 				onChange={(e) => setDescription(e.target.value)}
 				type="text"
+				placeholder="Enter short description"
 				required
 			/>
 			<div className="dateTimeContainer">
@@ -37,6 +39,7 @@ function Form({
 					value={date_time}
 					onChange={(e) => setDateTime(e.target.value)}
 					type="datetime-local"
+					placeholder="Select date & time"
 					required
 				/>
 			</div>

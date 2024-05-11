@@ -18,3 +18,9 @@ export const Text = styled.span`
 		text-transform: capitalized;
 	}
 `
+export const CheckBox = styled.span`
+	font-size: 1.2em;
+	color: ${({ completed }) => (completed ? 'green' : 'red')};
+`
+
+export const DeleteIcon = styled(Text)``

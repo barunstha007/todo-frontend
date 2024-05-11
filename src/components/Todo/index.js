@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from '../../axios'
 import Form from './Form'
 import { Container } from './styles'
+import TodoList from './TodoList'
 
 function Todo() {
 	const [name, setName] = useState('')
@@ -65,6 +66,7 @@ function Todo() {
 				addTodo={addTodo}
 			/>
 			{/* Todo List */}
+			<TodoList todos={todos} fetchData={fetchData} />
 			{/* Key */}
 			{/* Author */}
 		</Container>
