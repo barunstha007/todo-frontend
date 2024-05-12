@@ -4,7 +4,6 @@ import Card from './Card'
 import Filter from './Filter'
 import Form from './Form'
 import { Container } from './styles'
-import TodoList from './TodoList'
 
 function Todo() {
 	const [name, setName] = useState('')
@@ -98,9 +97,6 @@ function Todo() {
 					<Card todo={todo} key={todo._id} fetchData={fetchData} />
 				))}
 			</div>
-
-			{/* Key */}
-			{/* Author */}
 		</Container>
 	)
 }

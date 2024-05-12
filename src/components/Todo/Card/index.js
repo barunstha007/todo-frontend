@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import axios from '../../../axios'
-import moment from 'moment'
 import clsx from 'clsx'
 
 function Card({ todo, fetchData,fetchUpcoming,fetchDone }) {
