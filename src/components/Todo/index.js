@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from '../../axios'
 import Card from './Card'
+import Filter from './Filter'
 import Form from './Form'
 import { Container } from './styles'
 import TodoList from './TodoList'
@@ -11,10 +12,19 @@ function Todo() {
 	const [date_time, setDateTime] = useState('')
 	const [completed, setCompleted] = useState('')
 	const [todos, setTodos] = useState([])
+	const todoArr = todos.data
 
 	const fetchData = async () => {
 		try {
 			const response = await axios.get('/todos')
+			setTodos(response.data)
+		} catch (error) {
+			console.log(error.message)
+		}
+	}
+	const fetchFilter = async (filter) => {
+		try {
+			const response = await axios.get(`/todos?filter=${filter}`)
 			setTodos(response.data)
 		} catch (error) {
 			console.log(error.message)
@@ -53,9 +63,23 @@ function Todo() {
 	}
 	return (
 		<Container>
-			<h2 className='mb-4'>List of Todos</h2>
+			{/* Filter */}
+			<div className="flex gap-3">
+				<Filter
+					title="Upcoming"
+					todos={todos}
+					fetchFilter={fetchFilter}
+					className="bg-yellow-500 text-white py-1 px-3 rounded-md ml-2"
+				/>
+				<Filter
+					title="Done"
+					todos={todos}
+					fetchFilter={fetchFilter}
+					className="bg-green-500 text-white py-1 px-3 rounded-md ml-2"
+				/>
+			</div>
 			{/* Form Component */}
-			<Form 
+			<Form
 				name={name}
 				setName={setName}
 				description={description}
@@ -66,8 +90,15 @@ function Todo() {
 				setCompleted={setCompleted}
 				addTodo={addTodo}
 			/>
+			<h2 className="mb-4">List of Todos</h2>
+
 			{/* Todo List */}
-			<Card todos={todos} fetchData={fetchData} />
+			<div className="flex flex-wrap -mx-2">
+				{todoArr?.map((todo) => (
+					<Card todo={todo} key={todo._id} fetchData={fetchData} />
+				))}
+			</div>
+
 			{/* Key */}
 			{/* Author */}
 		</Container>

@@ -32,7 +32,7 @@ function Form({
 					Description :
 				</p>
 				<textarea
-					className="border border-blue-100"
+					className="border-2 border-red-400 rounded-lg p-2 active:border-red-400"
 					id="description"
 					value={description}
 					onChange={(e) => setDescription(e.target.value)}
