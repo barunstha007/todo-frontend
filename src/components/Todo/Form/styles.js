@@ -10,7 +10,6 @@ export const FormContainer = styled.form`
 
 export const Input = styled.input`
 	background-color: #f7f7f7;
-	width: 100%;
 	padding: 8px;
 	margin-bottom: 10px;
 	border: 1px solid #ef7360;
@@ -37,10 +36,9 @@ export const Button = styled.button`
 `
 
 export const DateTimeContainer = styled.div`
-	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width: 100%;
+	// width: 50%;
 	overflow: hidden;
 `
 

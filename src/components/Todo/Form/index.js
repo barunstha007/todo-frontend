@@ -13,49 +13,69 @@ function Form({
 	addTodo,
 }) {
 	return (
-		<FormContainer>
-			<label htmlFor="name">Name:</label>
-			<Input
-				id="name"
-				value={name}
-				onChange={(e) => setName(e.target.value)}
-				type="text"
-				placeholder="Enter name"
-				required
-			/>
-			<label htmlFor="description">Description:</label>
-			<Input
-				id="description"
-				value={description}
-				onChange={(e) => setDescription(e.target.value)}
-				type="text"
-				placeholder="Enter short description"
-				required
-			/>
-			<div className="dateTimeContainer">
-				<label htmlFor="dateTime">Date & Time:</label>
+		<div className="space-y-3 w-[80%]">
+			<div className="grid grid-cols-2 gap-x-3">
+				<p htmlFor="name" className="text-right">
+					Name :
+				</p>
 				<Input
-					id="dateTime"
-					value={date_time}
-					onChange={(e) => setDateTime(e.target.value)}
-					type="datetime-local"
-					placeholder="Select date & time"
+					id="name"
+					value={name}
+					onChange={(e) => setName(e.target.value)}
+					type="text"
+					placeholder="Enter name"
 					required
 				/>
 			</div>
-			<div className="completedContainer">
-				<label htmlFor="completed">Completed:</label>
-				<input
-					id="completed"
-					value={completed}
-					onChange={(e) => setCompleted(e.target.checked)}
-					type="checkbox"
+			<div className="grid grid-cols-2 gap-x-3">
+				<p htmlFor="description" className="text-right">
+					Description :
+				</p>
+				<textarea
+					className="border border-blue-100"
+					id="description"
+					value={description}
+					onChange={(e) => setDescription(e.target.value)}
+					type="text"
+					placeholder="Enter short description"
+					rows={3}
+					required
 				/>
 			</div>
-			<Button type="submit" onClick={(e) => addTodo(e)}>
-				Add
-			</Button>
-		</FormContainer>
+			<div>
+				<div className="grid grid-cols-2 gap-x-3">
+					<p htmlFor="dateTime" className="text-right">
+						Date & Time :
+					</p>
+					<Input
+						id="dateTime"
+						value={date_time}
+						onChange={(e) => setDateTime(e.target.value)}
+						type="datetime-local"
+						placeholder="Select date & time"
+						required
+					/>
+				</div>
+			</div>
+			<div className="grid grid-cols-2 gap-x-3">
+				<p htmlFor="completed" className="text-right">
+					Completed :
+				</p>
+				<div className="text-left">
+					<input
+						id="completed"
+						value={completed}
+						onChange={(e) => setCompleted(e.target.checked)}
+						type="checkbox"
+					/>
+				</div>
+			</div>
+			<div className="text-center">
+				<Button type="submit" onClick={(e) => addTodo(e)}>
+					Add
+				</Button>
+			</div>
+		</div>
 	)
 }
 

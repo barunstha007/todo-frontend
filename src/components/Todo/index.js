@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from '../../axios'
+import Card from './Card'
 import Form from './Form'
 import { Container } from './styles'
 import TodoList from './TodoList'
@@ -52,9 +53,9 @@ function Todo() {
 	}
 	return (
 		<Container>
-			<h2>List of Todos</h2>
+			<h2 className='mb-4'>List of Todos</h2>
 			{/* Form Component */}
-			<Form
+			<Form 
 				name={name}
 				setName={setName}
 				description={description}
@@ -66,7 +67,7 @@ function Todo() {
 				addTodo={addTodo}
 			/>
 			{/* Todo List */}
-			<TodoList todos={todos} fetchData={fetchData} />
+			<Card todos={todos} fetchData={fetchData} />
 			{/* Key */}
 			{/* Author */}
 		</Container>
