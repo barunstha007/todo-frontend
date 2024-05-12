@@ -76,6 +76,12 @@ function Todo() {
 					fetchFilter={fetchFilter}
 					className="bg-green-500 text-white py-1 px-3 rounded-md ml-2"
 				/>
+				<Filter
+					title="All"
+					todos={todos}
+					fetchFilter={fetchFilter}
+					className="bg-blue-500 text-white py-1 px-3 rounded-md ml-2"
+				/>
 			</div>
 			{/* Form Component */}
 			<Form
